@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.spacer {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+// Define a custom mixin that takes in the current theme
+@mixin theme-color-grabber($theme) {
+  // Parse the theme and create variables for each color in the pallete
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  // Create theme specfic styles
+  .primaryBG {
+    background-color: mat-color($primary);
+  }
+  .accentBG {
+    background-color: mat-color($accent);
+  }
+  .warnBG {
+    background-color: mat-color($warn);
+  }
+}
