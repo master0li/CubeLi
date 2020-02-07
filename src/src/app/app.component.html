@@ -1,19 +1,59 @@
-<mat-toolbar class="mat-elevation-z5">
-  <button mat-icon-button>
+<mat-toolbar class="mat-elevation-z10">
+  <button mat-icon-button [matMenuTriggerFor]="mainMenu">
     <mat-icon class="md-24">menu</mat-icon>
   </button>
   <span class="spacer"></span>
-  
-  <span>{{title}}</span> 
-  
+
+  <span>{{title}}</span>
+
   <span class="spacer"></span>
-  <button mat-icon-button>
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu">
     <mat-icon class="md-24">account_circle</mat-icon>
   </button>
 </mat-toolbar>
+<mat-menu #mainMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/']">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </button>
+  <button mat-menu-item [routerLink]="['/timer']">
+    <mat-icon>access_alarm</mat-icon>
+    <span>Timer</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>list</mat-icon>
+    <span>Sessions</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>timeline</mat-icon>
+    <span>Analysis</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>fitness_center</mat-icon>
+    <span>Algorithm Training</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>sports_mma</mat-icon>
+    <span>Battle</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>help</mat-icon>
+    <span>Help</span>
+  </button>
+</mat-menu>
+
+<mat-menu #profileMenu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>account_box</mat-icon>
+    <span>Profile</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Log Out</span>
+  </button>
+</mat-menu>
 <router-outlet></router-outlet>
-<div class="splash">
-  <h1>Cubeli</h1>
-  <h4>Your cubing toolbox</h4>
-  <button mat-raised-button color="primary">Get Started</button>
-</div>

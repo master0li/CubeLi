@@ -3,8 +3,14 @@
 
 
 html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.title {
+    font-size: 64px !important;
+    font-weight: bolder;
+    margin-bottom: .35em !important;
+}
 
 .spacer {
     /* This fills the remaining space, by using flexbox. 
@@ -29,3 +35,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: mat-color($warn);
   }
 }
+
+@media screen and (min-width: 1000px) {
+    html {
+      font-size: 22px;
+    }
+  }
