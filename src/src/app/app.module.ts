@@ -3,7 +3,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,18 +14,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SplashComponent } from './splash/splash.component';
-import { TimerComponent } from './timer/timer.component';
-import { SessionsComponent } from './sessions/sessions.component';
-import { ScrambleComponent } from './scramble/scramble.component';
+import { SplashComponent } from './components/splash/splash.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { ScrambleComponent } from './components/scramble/scramble.component';
+import { SessionComponent } from './components/session/session.component';
+import { ScrambleService } from './services/scramble.service';
+import { SessionService } from './services/session.service';
+import { TimerService } from './services/timer.service';
+import { LayoutService } from './services/layout.service';
+import { DurationPipe } from './duration.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
     TimerComponent,
-    SessionsComponent,
-    ScrambleComponent
+    ScrambleComponent,
+    SessionComponent,
+    DurationPipe
   ],
   imports: [
 
@@ -36,13 +42,19 @@ import { ScrambleComponent } from './scramble/scramble.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HammerModule,
 
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [
+    LayoutService,
+    ScrambleService,
+    SessionService,
+    TimerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

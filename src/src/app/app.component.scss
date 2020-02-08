@@ -1,0 +1,16 @@
+scramble {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 900px) {
+    .topToolbar {
+        height: auto !important;
+    }    
+
+    scramble {
+        white-space: normal;
+    }
+
+  }

@@ -1,0 +1,69 @@
+// .scramble {
+//     display: inline-block;
+//     height: 100%;
+//     margin: 0 .5em;    
+//     font-size: 22px;
+//     vertical-align: middle;
+//     line-height: 100%;
+    
+// }
+
+.leftScrambleControl {
+    padding: 0;
+}
+
+.rightScrambleControl {
+    padding: 0;
+}
+
+.scramble {
+    letter-spacing: .2em;
+    font-size: 26px;
+    font-weight: normal;
+    padding: 0 1em;
+}
+
+.lowerScrambleControls {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .scramble {
+      font-size: 24px;
+      letter-spacing: .15em;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .scramble {
+      font-size: 22px;
+    }
+  }
+
+@media screen and (max-width: 1000px) {
+    .scramble {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    // .scramble {
+    //   font-size: 16px;
+    // }
+  }
+
+  @media screen and (max-width: 900px) {
+    // .scramble {
+    //     height: 200px;
+    // }
+
+    .lowerScrambleControls {
+        display: inherit;
+    }
+
+    .inlineScrambleControl {
+        display: none;
+    }
+
+
+  }
