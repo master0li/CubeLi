@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { HammerGestureConfig } from '@angular/platform-browser';
+import { TimerService } from 'src/app/services/timer.service';
+import { ScrambleService } from 'src/app/services/scramble.service';
 
 declare var Cube: any;
 
@@ -28,66 +30,32 @@ export class TimerComponent implements OnInit {
   public onPressing: boolean = false;
 
 
-  constructor() { }
+  constructor(public timerService: TimerService, public  scrambleService: ScrambleService) { }
 
   ngOnInit(): void {
-    
+
+    this.timerService.onTick.subscribe(() => {
+      this.time = this.timerService.Milliseconds;
+    });
+
   }
 
   keyPressed(event: KeyboardEvent) { 
     if (event.keyCode === 32) {
 
-      if (this.isRunning){
-        clearInterval(this.intervalTimer);
-        this.isRunning = false;
+      if (this.timerService.IsRunning){
+        this.timerService.Stop();
+        this.scrambleService.Next();
       }
-      else if (this.isInspection){  
-  
-        this.isInspection = false;      
-        clearInterval(this.intervalTimer);
-  
-        this.startTimer();
-  
+      else if (this.timerService.IsInspection){  
+             this.timerService.Start();
       }
       else {
-  
-        this.startInspection();
-        
-  
+
+        this.timerService.StartInspection();      
       }
     }
     
-  }
-
-  public startTimer() {
-    
-    this.isRunning = true;
-    this.time = 0;
-
-    this.intervalTimer = setInterval(() => {
-      this.time += 10;
-
-    }, 10);
-
-        
-  }
-
-  public startInspection() {
-
-    this.isInspection = true;
-
-    this.time = 15000;
-
-    this.intervalTimer = setInterval(() => {
-      this.time -= 1000;
-
-      if (this.time === 0) {
-        this.isInspection = false;
-        clearInterval(this.intervalTimer);
-      }
-
-    }, 1000);
-
   }
 
   public press(event) {
@@ -101,23 +69,16 @@ export class TimerComponent implements OnInit {
     
     console.log("pressUp");
     
-    if (this.isRunning){
-      clearInterval(this.intervalTimer);
-      this.isRunning = false;
+    if (this.timerService.IsRunning){
+      this.timerService.Stop();
+      this.scrambleService.Next();
     }
-    else if (this.isInspection){  
-
-      this.isInspection = false;      
-      clearInterval(this.intervalTimer);
-
-      this.startTimer();
-
+    else if (this.timerService.IsInspection){  
+           this.timerService.Start();
     }
     else {
 
-      this.startInspection();
-      
-
+      this.timerService.StartInspection();      
     }
     
   }
@@ -125,17 +86,12 @@ export class TimerComponent implements OnInit {
   public tap(event) {
     console.log("tap");
     
-    if (this.isRunning){
-      clearInterval(this.intervalTimer);
-      this.isRunning = false;
+    if (this.timerService.IsRunning){
+      this.timerService.Stop();
+      this.scrambleService.Next();
     }
-    else if (this.isInspection){  
-      
-      this.isInspection = false;      
-      clearInterval(this.intervalTimer);
-
-      this.startTimer();
-
+    else if (this.timerService.IsInspection){  
+           this.timerService.Start();
     }
   }
 

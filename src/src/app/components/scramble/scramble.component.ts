@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrambleService } from 'src/app/services/scramble.service';
 
-declare var Cube: any;
 
 @Component({
   selector: 'scramble',
@@ -12,21 +12,26 @@ export class ScrambleComponent implements OnInit {
   public scramble: string = '';
 
 
-  constructor() { }
+  constructor(public scrambleService: ScrambleService) { 
+
+
+    this.scrambleService.onGenerate.subscribe(() => {
+      this.scramble = this.scrambleService.Scramble;      
+    });
+
+  }
 
   ngOnInit(): void {
 
-    Cube.initSolver();
-
-    this.scramble = Cube.scramble();
+    this.scramble = this.scrambleService.Scramble;
   }
 
   public previous(){
-    this.scramble = Cube.scramble();
+    this.scrambleService.Previous();
   }
 
   public next(){
-    this.scramble = Cube.scramble();
+    this.scramble = this.scrambleService.Next();
   }
 
 }
