@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Session } from '../models/session';
+import { ScrambleService } from './scramble.service';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,7 @@ export class TimerService {
   public onInspection = new Subject();
   public onPenalty = new Subject();
 
-  constructor() { }
+  constructor(public scrambleService: ScrambleService, public sessionService: SessionService) { }
 
   get IsRunning(): boolean {
     return this._isRunning;
@@ -83,6 +86,16 @@ export class TimerService {
     clearInterval(this._intervalTimer);
     this._isRunning = false;
     this._isInspection = false;
+
+    let session = new Session();
+
+    session.Scramble = this.scrambleService.Scramble;
+    session.DateSession = new Date();
+    session.Time = this._milliseconds;
+    session.Puzzle = "3x3x3";
+    session.Comment = "Comment";
+
+    this.sessionService.Add(session); 
 
     this.onStop.next();
 

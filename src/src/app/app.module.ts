@@ -13,25 +13,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SplashComponent } from './components/splash/splash.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { ScrambleComponent } from './components/scramble/scramble.component';
-import { SessionComponent } from './components/session/session.component';
+import { SessionsComponent } from './components/sessions/sessions.component';
 import { ScrambleService } from './services/scramble.service';
 import { SessionService } from './services/session.service';
 import { TimerService } from './services/timer.service';
 import { LayoutService } from './services/layout.service';
 import { DurationPipe } from './duration.pipe';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { TimerPageComponent } from './pages/timer-page/timer-page.component';
+
+
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SplashComponent,
     TimerComponent,
     ScrambleComponent,
-    SessionComponent,
-    DurationPipe
+    SessionsComponent,
+    DurationPipe,
+    TimerPageComponent,
+    HomePageComponent,
+    
+    //pages
+    HomePageComponent,
+    TimerPageComponent,
   ],
   imports: [
 
@@ -47,7 +58,12 @@ import { DurationPipe } from './duration.pipe';
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    MatToolbarModule
+    MatPaginatorModule,
+    MatTableModule,
+    MatToolbarModule,
+    FlexLayoutModule ,
+
+
   ],
   providers: [
     LayoutService,

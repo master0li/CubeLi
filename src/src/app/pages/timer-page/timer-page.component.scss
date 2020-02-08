@@ -1,0 +1,24 @@
+.horizontal 
+{ height: calc(100% - 64px) }
+
+
+.sessionsComponent {
+    height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    .sessionsComponent {
+        height: auto;
+    }  
+
+    .timerComponent {
+        height: auto;
+        padding-bottom: 2em;
+    }
+
+    .horizontal {
+        height: auto;
+    }
+
+  }
+

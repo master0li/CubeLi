@@ -7,7 +7,7 @@ import { ScrambleService } from 'src/app/services/scramble.service';
 declare var Cube: any;
 
 @Component({
-  selector: 'app-timer',
+  selector: 'timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
   host: {

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SplashComponent } from './components/splash/splash.component';
-import { TimerComponent } from './components/timer/timer.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { TimerPageComponent } from './pages/timer-page/timer-page.component';
 
 
 const routes: Routes = [
-  { path: '', component: SplashComponent, pathMatch: 'full' },
-  { path: 'timer', component: TimerComponent, pathMatch: 'full' },
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: 'timer', component: TimerPageComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
