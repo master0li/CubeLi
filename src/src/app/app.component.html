@@ -1,4 +1,4 @@
-<mat-toolbar class="topToolbar mat-elevation-z10">
+<mat-toolbar class="topToolbar mat-elevation-z10" *ngIf="showToolbar">
   <button mat-icon-button [matMenuTriggerFor]="mainMenu">
     <mat-icon class="md-24">menu</mat-icon>
   </button>
@@ -8,6 +8,9 @@
   <h1>{{title}}</h1>
   
   <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="layoutMenu">
+    <mat-icon class="md-24">view_quilt</mat-icon>
+  </button>
 
   <button mat-icon-button [matMenuTriggerFor]="profileMenu">
     <mat-icon class="md-24">account_circle</mat-icon>
@@ -46,6 +49,29 @@
     <mat-icon>help</mat-icon>
     <span>Help</span>
   </button>
+</mat-menu>
+
+<mat-menu #layoutMenu="matMenu" id="layoutMenu">
+
+
+  <button mat-menu-item>
+    <mat-icon>list</mat-icon>
+    <span>Show Session</span>
+    <mat-slide-toggle [checked]="showSession" (change)="onShowSessionChanged()" (click)="$event.stopPropagation();"></mat-slide-toggle>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>text_rotation_none</mat-icon>
+    <span>Show Scramble</span>
+    <mat-slide-toggle [checked]="showScramble" (change)="onShowScrambleChanged()" (click)="$event.stopPropagation();"></mat-slide-toggle>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>grid_on</mat-icon>
+    <span>Draw Scramble</span>
+    <mat-slide-toggle [checked]="drawScramble" (change)="onDrawScrambleChanged()" (click)="$event.stopPropagation();"></mat-slide-toggle>
+  </button>
+
 </mat-menu>
 
 <mat-menu #profileMenu="matMenu">

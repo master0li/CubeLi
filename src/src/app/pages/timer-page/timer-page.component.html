@@ -1,7 +1,7 @@
-<div class="pageDiv" fxLayout.gt-sm="row" fxLayout.lt-md="column" >
+<div class="pageDiv" fxLayout.gt-xs="row" fxLayout.lt-sm="column" >
     <div fxFlex="grow" fxLayout="column">
-        <scramble fxFlex="0 1 auto"></scramble>
+        <scramble fxFlex="0 1 auto" *ngIf="showScramble"></scramble>
         <timer fxFlex="grow" style='padding-bottom: 1.5em'></timer>
     </div>
-    <sessions fxFlex="1 1 auto"></sessions>
+    <sessions fxFlex="1 1 auto"  *ngIf="showSession"></sessions>
 </div>

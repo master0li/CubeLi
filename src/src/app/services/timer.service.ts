@@ -3,6 +3,8 @@ import { Subject } from 'rxjs';
 import { Session } from '../models/session';
 import { ScrambleService } from './scramble.service';
 import { SessionService } from './session.service';
+import { Solve } from '../models/solve';
+import { LayoutService } from './layout.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class TimerService {
   public onInspection = new Subject();
   public onPenalty = new Subject();
 
-  constructor(public scrambleService: ScrambleService, public sessionService: SessionService) { }
+  constructor(public scrambleService: ScrambleService, public sessionService: SessionService, public layoutService: LayoutService) { }
 
   get IsRunning(): boolean {
     return this._isRunning;
@@ -62,6 +64,9 @@ export class TimerService {
 
     this.onInspection.next();
 
+    
+    this.layoutService.OnlyTimer = true;
+
     this._isInspection = true;
 
     this._milliseconds = 15000;
@@ -88,15 +93,18 @@ export class TimerService {
     this._isRunning = false;
     this._isInspection = false;
 
-    let session = new Session();
+    
+    this.layoutService.OnlyTimer = false;
 
-    session.Scramble = this.scrambleService.Scramble;
-    session.DateSession = new Date();
-    session.Time = this._milliseconds;
-    session.Puzzle = "3x3x3";
-    session.Comment = "Comment";
+    let solve = new Solve();
 
-    this.sessionService.Add(session); 
+    solve.Scramble = this.scrambleService.Scramble;
+    solve.DateSolved = new Date();
+    solve.Time = this._milliseconds;
+    solve.Puzzle = "3x3x3";
+    solve.Comment = "Comment";
+
+    this.sessionService.AddSolve(solve); 
 
     this.onStop.next();
 

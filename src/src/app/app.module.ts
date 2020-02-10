@@ -13,7 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatTableModule} from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TimerComponent } from './components/timer/timer.component';
 import { ScrambleComponent } from './components/scramble/scramble.component';
@@ -61,6 +63,8 @@ import { TestPageComponent } from './pages/test-page/test-page.component';
     MatIconModule,
     MatMenuModule,
     MatPaginatorModule,
+    MatSelectModule,
+    MatSlideToggleModule,
     MatTableModule,
     MatToolbarModule,
     FlexLayoutModule ,

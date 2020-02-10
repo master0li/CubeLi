@@ -124,11 +124,12 @@ export class TimerComponent implements OnInit {
       this.timerService.Stop();
       this.scrambleService.Next();
     }
+    else if (this.isReady) {
+      this.isReady = false;
+      this.timerService.StartInspection();      
+    }
     else if (this.timerService.IsInspection){  
            this.timerService.Start();
-    }
-    else if (this.isReady) {
-      this.timerService.StartInspection();      
     }
     
   }
@@ -167,25 +168,27 @@ export class TimerComponent implements OnInit {
       this.timerService.Stop();
       this.scrambleService.Next();
     }
+    else if (this.isReady) {
+      this.isReady = false;
+      this.timerService.StartInspection();      
+    }
     else if (this.timerService.IsInspection){  
            this.timerService.Start();
-    }
-    else if (this.isReady) {
-      this.timerService.StartInspection();      
     }
   }
 
   public tap(event){
-    if (this.timerService.IsRunning){
-      this.timerService.Stop();
-      this.scrambleService.Next();
-    }
-    else if (this.timerService.IsInspection){  
-           this.timerService.Start();
-    }
-    else if (this.isReady) {
-      this.timerService.StartInspection();      
-    }
+    console.log("tap");   
+    // if (this.timerService.IsRunning){
+    //   this.timerService.Stop();
+    //   this.scrambleService.Next();
+    // }
+    // else if (this.timerService.IsInspection){  
+    //        this.timerService.Start();
+    // }
+    // else if (this.isReady) {
+    //   this.timerService.StartInspection();      
+    // }
   }
 
 }
