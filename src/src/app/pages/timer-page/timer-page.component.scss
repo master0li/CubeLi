@@ -1,24 +1,22 @@
-.horizontal 
-{ height: calc(100% - 64px) }
+
+// #timerDiv {
+    
+// }
 
 
-.sessionsComponent {
-    height: 100%;
-}
+// @media screen and (max-width: 900px) {
+//     .sessionsComponent {
+//         height: auto;
+//     }  
 
-@media screen and (max-width: 900px) {
-    .sessionsComponent {
-        height: auto;
-    }  
+//     .timerComponent {
+//         height: auto;
+//         padding-bottom: 2em;
+//     }
 
-    .timerComponent {
-        height: auto;
-        padding-bottom: 2em;
-    }
+//     .horizontal {
+//         height: auto;
+//     }
 
-    .horizontal {
-        height: auto;
-    }
-
-  }
+//   }
 

@@ -1,6 +1,8 @@
 
-<div [ngClass]="{green: onPressing, yellow: isInspection }" style="text-align: center; padding-top: 1em;" (press)="press($event)" (pressup)="pressUp($event)" (tap)="tap($event)">
-    <div class="time"  >{{ time | duration}}</div>
+<div id="timerDiv" fxFlex="grow" fxLayout="column" [ngClass]="{greenBG: isReady, yellowBG: isInspection || isPending }" style="text-align: center;" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)"
+(press)="press($event)" (pressup)="pressUp($event)" (tap)="tap($event)">
+    
+<div class="time">{{ time | duration}}</div>
 <div class="ao5">ao5: {{ ao5 | duration }}</div>
 <div class="ao12">ao12: {{ ao12 | duration }}</div>
 <div class="ao100">ao100: {{ ao100 | duration }}</div>

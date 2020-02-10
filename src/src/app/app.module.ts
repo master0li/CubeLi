@@ -29,6 +29,7 @@ import { TimerPageComponent } from './pages/timer-page/timer-page.component';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { TestPageComponent } from './pages/test-page/test-page.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     //pages
     HomePageComponent,
     TimerPageComponent,
+    TestPageComponent,
   ],
   imports: [
 

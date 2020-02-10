@@ -1,4 +1,7 @@
-<div fxLayout="row" fxLayout.lt-md="column" class="horizontal">
-    <timer fxFlex="1 1 auto" class="timerComponent"></timer>
-    <sessions fxFlex="1 1 300px" class="sessionsComponent"></sessions>
+<div class="pageDiv" fxLayout.gt-sm="row" fxLayout.lt-md="column" >
+    <div fxFlex="grow" fxLayout="column">
+        <scramble fxFlex="0 1 auto"></scramble>
+        <timer fxFlex="grow" style='padding-bottom: 1.5em'></timer>
+    </div>
+    <sessions fxFlex="1 1 auto"></sessions>
 </div>

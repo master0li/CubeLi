@@ -1,78 +1,94 @@
+#timerDiv {
+	//height: 100%;
+    // min-height: 100%;
+	// display: flex;
+	// flex-direction: column;
+    justify-content: center;
+}
+
 .time {
-    margin-top: .65em;
-    margin-bottom: .75em;
+    // padding-top: .65em;
+    // padding-bottom: .75em;
     //font-size: 128px;
-    font-size: 192px;
+    font-size: 18vw;
+    line-height: normal;
 }
 
 .ao5, .ao12, .ao100 {
-    margin-top: .75em;
-    margin-bottom: .75em;
-    font-size: 48px;
+    line-height: normal;
+    font-size: 3vw;
 }
 
-.green {
+
+
+// .ao5, .ao12, .ao100 {
+//     margin-top: .75em;
+//     margin-bottom: .75em;
+//     font-size: 48px;
+// }
+
+.greenBG {
     background-color: lightgreen;
 }
 
-.red {
+.redBG {
     background-color: red;
 
 }
 
-.yellow {
+.yellowBG {
     background-color: yellow;
 
 }
 
-@media screen and (max-width: 1200px) {
-    .time {
-        font-size: 160px;
-    }
+// @media screen and (max-width: 1200px) {
+//     .time {
+//         font-size: 160px;
+//     }
 
-    .ao5, .ao12, .ao100 {
-        font-size: 32px;
-    }
-  }
+//     .ao5, .ao12, .ao100 {
+//         font-size: 32px;
+//     }
+//   }
 
-@media screen and (max-width: 1000px) {
-    .time {
-        font-size: 128px;
-    }
+// @media screen and (max-width: 1000px) {
+//     .time {
+//         font-size: 128px;
+//     }
 
-    .ao5, .ao12, .ao100 {
-        font-size: 28px;
-    }
-  }
+//     .ao5, .ao12, .ao100 {
+//         font-size: 28px;
+//     }
+//   }
 
-  @media screen and (max-width: 800px) {
-    .time {
-        font-size: 112px;
-    }
+//   @media screen and (max-width: 800px) {
+//     .time {
+//         font-size: 112px;
+//     }
 
-    .ao5, .ao12, .ao100 {
-        font-size: 28px;
-    }
-  }
+//     .ao5, .ao12, .ao100 {
+//         font-size: 28px;
+//     }
+//   }
 
-@media screen and (max-width: 600px) {
-    .time {
-        font-size: 96px;
-    }
+// @media screen and (max-width: 600px) {
+//     .time {
+//         font-size: 96px;
+//     }
 
-    .ao5, .ao12, .ao100 {
-        margin-top: .5em;
-        margin-bottom: .5em;
-        font-size: 24px;
-    }
-  }
+//     .ao5, .ao12, .ao100 {
+//         margin-top: .5em;
+//         margin-bottom: .5em;
+//         font-size: 24px;
+//     }
+//   }
 
-  @media screen and (max-width: 450px) {
-    .time {
-        font-size: 72px;
-    }
+//   @media screen and (max-width: 450px) {
+//     .time {
+//         font-size: 72px;
+//     }
 
-    .ao5, .ao12, .ao100 {
-        font-size: 16px;
-    }
-  }
+//     .ao5, .ao12, .ao100 {
+//         font-size: 16px;
+//     }
+//   }

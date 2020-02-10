@@ -50,9 +50,9 @@ export class TimerService {
 
     this._intervalTimer = setInterval(() => {
       
-      this.onTick.next();
+      
       this._milliseconds += 10;
-
+      this.onTick.next();
     }, 10);
 
 
@@ -75,6 +75,7 @@ export class TimerService {
 
         this._isInspection = false;
         clearInterval(this._intervalTimer);
+        this.onPenalty.next();
 
       }
 
