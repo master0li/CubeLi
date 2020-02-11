@@ -32,6 +32,11 @@ import { TimerPageComponent } from './pages/timer-page/timer-page.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +52,11 @@ import { TestPageComponent } from './pages/test-page/test-page.component';
     HomePageComponent,
     TimerPageComponent,
     TestPageComponent,
+    LoginComponent,
+    RegisterComponent,
+    ConfirmComponent,
+    ForgotPasswordComponent,
+    LoginPageComponent,
   ],
   imports: [
 

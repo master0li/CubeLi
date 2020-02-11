@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { TimerPageComponent } from './pages/timer-page/timer-page.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginPageComponent, pathMatch: 'full' },
   { path: 'timer', component: TimerPageComponent, pathMatch: 'full' },
   { path: 'test', component: TestPageComponent, pathMatch: 'full' },
 ];
