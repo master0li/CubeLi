@@ -8,13 +8,18 @@
   <h1>{{title}}</h1>
   
   <span class="spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="layoutMenu">
+  <button mat-icon-button [matMenuTriggerFor]="layoutMenu" *ngIf="showLayoutMenu">
     <mat-icon class="md-24">view_quilt</mat-icon>
   </button>
 
-  <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+  <span class="links" *ngIf="!isLoggedIn"><a [routerLink]="['/login']" >login</a> | <a [routerLink]="['/register']" >register</a></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu" *ngIf="isLoggedIn">
     <mat-icon class="md-24">account_circle</mat-icon>
   </button>
+
+  
+
 </mat-toolbar>
 <mat-menu #mainMenu="matMenu">
   <button mat-menu-item [routerLink]="['/']">
@@ -75,13 +80,15 @@
 </mat-menu>
 
 <mat-menu #profileMenu="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item [routerLink]="['/profile']">
     <mat-icon>account_box</mat-icon>
-    <span>Profile</span>
+    <span>{{ Name }}</span>
   </button>
-  <button mat-menu-item disabled>
+  <button mat-menu-item (click)="Logout()" >
     <mat-icon>exit_to_app</mat-icon>
     <span>Log Out</span>
   </button>
 </mat-menu>
+
+
 <router-outlet></router-outlet>

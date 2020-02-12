@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-confirm',
+  selector: 'confirm',
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })

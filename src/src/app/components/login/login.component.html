@@ -1,1 +1,24 @@
-<p>login works!</p>
+<span class="spacer"></span>
+<div id="loginDiv" fxLayout="column" fxFlex="0 0 300px">
+    
+    <form fxLayout="column" [formGroup]='formLogin' (ngSubmit)='onSubmit()' id='formLogin'>
+        <mat-form-field>
+            <input matInput placeholder='Email' name='Email' formControlName='Email'>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder='Password' name='Password' formControlName='Password'
+                type="password">
+        </mat-form-field>
+
+        <button type='submit' mat-raised-button color='primary' color='primary' form='formLogin'
+            [disabled]='isLoading'>LOG IN</button>
+    </form>
+    <div class="loginLinks"><a [routerLink]="['/register']">REGISTER</a> | <a [routerLink]="['/forgot-password']">FORGOT PASSWORD?</a>
+    </div>
+    <h2 class='foregroundBorderColor'><span class='mat-app-background'>or</span></h2>
+
+    <button class="socialLogin" mat-raised-button (click)="LoginGoogle()"><img src='assets/images/ic_google.png' /> Log in with
+        Google</button>
+    <!-- <button mat-raised-button (click)="LoginEmail()"><img src='assets/images/ic_email.png' /> Log in with Email</button> -->
+</div>
+<span class="spacer"></span>

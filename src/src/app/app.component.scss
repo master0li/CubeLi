@@ -2,9 +2,16 @@
     height: 48px;
 }    
 
+.links,  .link a {
+    font-size: .75em;
+    font-weight: normal;
+}
+
 mat-slide-toggle {
     margin-left: 16px;
 }
+
+
 
 
 @media screen and (max-width: 900px) {

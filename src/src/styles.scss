@@ -1,12 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/theming';
 
+@include mat-core();
 
-html, body, app-root { height: 100%; }
-// .content { height: calc(100% - 32px) }
-
+html, body, app-root { 
+  height: 100%; 
+}
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 .title {
     font-size: 64px !important;
@@ -26,6 +28,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+ 
   // Create theme specfic styles
   .primaryBG {
     background-color: mat-color($primary);
@@ -36,7 +41,29 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .warnBG {
     background-color: mat-color($warn);
   }
+
+  .foreground { 
+    color: mat-color($foreground);
+  }
+
+  .background-color { 
+    background-color: mat-color($background);
+  }
+
+  .foregroundBorderColor{ 
+    border-bottom-color: mat-color($foreground);
+    border-color: mat-color($foreground);
+  }
 }
+
+a {
+    color: pink;
+    
+  }
+
+a:link, a:hover { 
+    text-decoration: none; 
+} 
 
 // @media screen and (min-width: 1000px) {
 //     html {

@@ -1,0 +1,27 @@
+
+<span class="spacer"></span>
+<div id="profileDiv" fxLayout="column" fxFlex="0 0 300px">
+    
+    <form fxLayout="column" [formGroup]='formProfile' (ngSubmit)='onSubmit()' id='formProfile'>
+        <mat-form-field>
+            <input matInput placeholder='User Name' name='UserName' formControlName='UserName'>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder='Email' name='Email' formControlName='Email'>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder='Password' name='Password' formControlName='Password'
+                type="password">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder='Confirm Password' name='ConfirmPassword' formControlName='ConfirmPassword'
+                type="password">
+        </mat-form-field>
+
+        <button type='submit' mat-raised-button color='primary' color='primary' form='formProfile'
+            [disabled]='isLoading'>UPDATE</button>
+    </form>
+    </div>
+    
+
+<span class="spacer"></span>

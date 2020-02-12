@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -37,6 +38,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BaseComponent } from './components/base/base.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { ConfirmPageComponent } from './pages/confirm-page/confirm-page.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +65,12 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     ConfirmComponent,
     ForgotPasswordComponent,
     LoginPageComponent,
+    BaseComponent,
+    RegisterPageComponent,
+    ConfirmPageComponent,
+    ForgotPasswordPageComponent,
+    ProfilePageComponent,
+    ProfileComponent,
   ],
   imports: [
 
@@ -71,6 +85,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
     MatMenuModule,
     MatPaginatorModule,
     MatSelectModule,
@@ -78,6 +93,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     MatTableModule,
     MatToolbarModule,
     FlexLayoutModule ,
+
+    ReactiveFormsModule,
 
 
   ],

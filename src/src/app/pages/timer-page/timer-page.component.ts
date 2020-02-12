@@ -14,19 +14,20 @@ export class TimerPageComponent implements OnInit {
   public showSession = true;
 
 
-  constructor(public layoutService: LayoutService) { }
+  constructor(public layoutService: LayoutService, public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
 
-    // this.breakpointObserver
-    //   .observe(['(min-width: 900px)'])
-    //   .subscribe((state: BreakpointState) => {
-    //     if (state.matches) {
-    //       this.showVerticalSession = true;
-    //     } else {
-    //       this.showVerticalSession = false;
-    //     }
-    //   });
+    this.breakpointObserver
+      .observe(['(min-width: 600px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.layoutService.ShowSession = true;
+        } 
+        else {
+          this.layoutService.ShowSession = false;
+        }
+      });
 
     
     this.showScramble = this.layoutService.ShowScramble;
