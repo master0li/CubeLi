@@ -1,7 +1,9 @@
 
-<div id="timerDiv" fxFlex="grow" fxLayout="column" [ngClass]="{greenBG: isReady, yellowBG: isInspection || isPending }" style="text-align: center;" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)"
-(press)="press($event)" (pressup)="pressUp($event)" (tap)="tap($event)">
-    
+<div id="timerDiv" fxFlex="grow" fxLayout="column" [ngClass]="{greenBG: isReady, yellowBG: isInspection || isPending }" style="text-align: center;"
+ (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)"
+(press)="press($event)" (pressup)="pressUp($event)" (tap)="tap($event)" (pancancel)="pancancel($event)"
+(swipe)="swipe($event)">
+<div class="debug">{{ debug }}</div>   
 <div class="time">{{ time | duration}}</div>
 <div class="averages" *ngIf="!isRunning && !isInspection">
     <div class="ao5">ao5: {{ ao5 | duration }}</div>

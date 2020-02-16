@@ -32,13 +32,10 @@ export class RegisterComponent implements OnInit {
   public onSubmit() {
     this.authService.RegisterWithEmailAndPassword(this.formRegister.get('Email').value,this.formRegister.get('Password').value).then(
       (result) => {
-
         this.isRegistered = true;
-
-
         },
       (error) => {
-        console.log("Errored!")
+        window.alert(error);
       }
     );
 
@@ -47,11 +44,11 @@ export class RegisterComponent implements OnInit {
   public LoginGoogle() {
 
     this.authService.LoginGoogle().then(
-      () => {
+      (result) => {
         console.log("Task Completed!"); 
         this.router.navigate(['/timer'])},
-      () => {
-        console.log("Task Errored!")
+      (error) => {
+        window.alert(error);
       }
     );
 

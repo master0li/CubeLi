@@ -46,6 +46,15 @@ import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+export class MyHammerConfig extends HammerGestureConfig  {
+  overrides = <any>{
+      'press': {threshold: 40}, // default threshold: 9
+      'tap': {threshold: 20} // default threshold: 9
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,6 +108,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 
   ],
   providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG, 
+      useClass: MyHammerConfig 
+    },
     LayoutService,
     ScrambleService,
     SessionService,

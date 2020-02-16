@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   public isLoading: boolean = false;
 
   constructor(
-    public authService: AuthService,     
+    public authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder) { }
 
@@ -23,29 +23,31 @@ export class LoginComponent implements OnInit {
     this.formLogin = this.formBuilder.group({
       Email: [''],
       Password: ['']
-  });
+    });
   }
 
   public onSubmit() {
-
+    this.authService.LoginEmail(this.formLogin.get("Email").value, this.formLogin.get("Password").value).then(
+      (result) => {
+        this.router.navigate(['/timer'])
+      },
+      (error) => {
+        window.alert(error);
+      }
+    );
   }
 
   public LoginGoogle() {
 
     this.authService.LoginGoogle().then(
-      () => {
-        console.log("Task Completed!"); 
-        this.router.navigate(['/timer'])},
-      () => {
-        console.log("Task Errored!")
+      (result) => {
+        console.log("Task Completed!");
+        this.router.navigate(['/timer'])
+      },
+      (error) => {
+        window.alert(error);
       }
     );
-
-  }
-
-  public LoginEmail() {
-    
-    this.authService.LoginEmail("","");
 
   }
 

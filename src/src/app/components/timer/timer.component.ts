@@ -35,6 +35,8 @@ export class TimerComponent implements OnInit {
   public cube = new Cube();
   public onPressing: boolean = false;
 
+  public debug: string = "";
+
 
   constructor(public timerService: TimerService, public  scrambleService: ScrambleService) { }
 
@@ -93,6 +95,7 @@ export class TimerComponent implements OnInit {
 
   public onMouseDown(event) {
     console.log("mousedown");
+    this.debug += "mousedown ";
 
     this.isMouseUp = false;
 
@@ -116,6 +119,7 @@ export class TimerComponent implements OnInit {
 
   public onMouseUp(event) {    
     console.log("mouseup");    
+    this.debug += "mouseup ";
 
     this.isPending = false;
     this.timer.unsubscribe();
@@ -137,6 +141,7 @@ export class TimerComponent implements OnInit {
   public press(event){
 
     console.log("press");
+    this.debug += "press ";
 
     this.isMouseUp = false;
 
@@ -159,7 +164,8 @@ export class TimerComponent implements OnInit {
   }
 
   public pressUp(event){
-    console.log("pressUp");    
+    console.log("pressUp");  
+    this.debug += "pressUp ";  
 
     this.isPending = false;
     this.timer.unsubscribe();
@@ -177,8 +183,25 @@ export class TimerComponent implements OnInit {
     }
   }
 
+  public swipe(event){
+    console.log("swipe");   
+    this.debug += "swipe ";
+
+    this.pressUp(event);
+    
+  }
+
+  public pancancel(event){
+    console.log("pancancel");   
+    this.debug += "pancancel ";
+
+    this.pressUp(event);
+    
+  }
+
   public tap(event){
     console.log("tap");   
+    this.debug += "tap ";
     // if (this.timerService.IsRunning){
     //   this.timerService.Stop();
     //   this.scrambleService.Next();

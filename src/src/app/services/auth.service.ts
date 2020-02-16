@@ -12,11 +12,13 @@ export class AuthService {
   private authState: firebase.User = null;
 
   public onAuthenticated = new Subject();
+  public onRegistered = new Subject();
   public onLogOut = new Subject();
 
   constructor(public angularFirestore: AngularFirestore, public angularFireAuth: AngularFireAuth) { 
     
     angularFireAuth.authState.subscribe((auth) => {
+      console.log(auth);
       this.authState = auth;
       this.onAuthenticated.next();
     });
@@ -24,7 +26,7 @@ export class AuthService {
   }
 
   get Authenticated(): boolean {
-    return this.authState !== null;
+    return (this.authState !== null && this.authState.emailVerified !== false) ? true : false;
   }
 
   get User(): any {
@@ -39,18 +41,29 @@ export class AuthService {
     return this.angularFireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
     .then((result) => {
       this.onAuthenticated.next();
+      return new Promise((resolve, reject) => {
+        resolve(result);
+      });
       
     }).catch((error) => {
-      window.alert(error)
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
     })
   }
 
   public LoginEmail(email: string, password: string) {    
     return this.angularFireAuth.auth.signInWithEmailAndPassword(email,password)
     .then((result) => {
+      this.onAuthenticated.next();
+      return new Promise((resolve, reject) => {
+        resolve(result);
+      });
       
     }).catch((error) => {
-      window.alert(error)
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
     })
   }
 
@@ -58,8 +71,15 @@ export class AuthService {
     return this.angularFireAuth.auth.createUserWithEmailAndPassword(email,password)
     .then((result) => {
       result.user.sendEmailVerification();
+      this.onRegistered.next();
+      return new Promise((resolve, reject) => {
+        resolve(result);
+      });
+      
     }).catch((error) => {
-      window.alert(error)
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
     })
   }
 
@@ -67,10 +87,16 @@ export class AuthService {
     return this.angularFireAuth.auth.signOut()
     .then((result) => {
       this.authState = null;
-      this.onLogOut.next();      
+      this.onLogOut.next();  
+      return new Promise((resolve, reject) => {
+        resolve(result);
+      });
+      
     }).catch((error) => {
-      window.alert(error)
-    });  
+      return new Promise((resolve, reject) => {
+        reject(error);
+      });
+    })
   }
 
 }
