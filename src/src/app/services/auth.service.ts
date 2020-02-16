@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
 import { Subject } from 'rxjs';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   public onRegistered = new Subject();
   public onLogOut = new Subject();
 
-  constructor(public angularFirestore: AngularFirestore, public angularFireAuth: AngularFireAuth) { 
+  constructor(public angularFirestore: AngularFirestore, public angularFireAuth: AngularFireAuth, public userService: UserService) { 
     
     angularFireAuth.authState.subscribe((auth) => {
       console.log(auth);
@@ -40,6 +41,15 @@ export class AuthService {
   public LoginGoogle() {    
     return this.angularFireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
     .then((result) => {
+
+      //save or update
+      this.userService.Add({
+        ID: result.user.uid,
+        Name: result.user.displayName,
+        Email: result.user.email,
+        Confirmed: result.user.emailVerified
+      });
+
       this.onAuthenticated.next();
       return new Promise((resolve, reject) => {
         resolve(result);

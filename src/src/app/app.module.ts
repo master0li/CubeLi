@@ -47,6 +47,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { UserService } from './services/user.service';
 
 export class MyHammerConfig extends HammerGestureConfig  {
   overrides = <any>{
@@ -115,7 +116,8 @@ export class MyHammerConfig extends HammerGestureConfig  {
     LayoutService,
     ScrambleService,
     SessionService,
-    TimerService
+    TimerService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
