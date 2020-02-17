@@ -12,6 +12,8 @@ export class AuthService {
 
   private authState: firebase.User = null;
 
+
+
   public onAuthenticated = new Subject();
   public onRegistered = new Subject();
   public onLogOut = new Subject();
@@ -65,6 +67,16 @@ export class AuthService {
   public LoginEmail(email: string, password: string) {    
     return this.angularFireAuth.auth.signInWithEmailAndPassword(email,password)
     .then((result) => {
+
+      //save or update
+      this.userService.Add({
+        ID: result.user.uid,
+        Name: result.user.displayName,
+        Email: result.user.email,
+        Confirmed: result.user.emailVerified
+      });
+
+      
       this.onAuthenticated.next();
       return new Promise((resolve, reject) => {
         resolve(result);

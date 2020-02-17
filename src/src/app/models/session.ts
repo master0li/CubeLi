@@ -1,6 +1,7 @@
 import { Solve } from './solve';
 
 export class Session {
+    public ID: string = "";
     public Name: string = "";
     public Solves: Solve[] = [];
     public Puzzle: string = "";

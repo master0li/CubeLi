@@ -27,6 +27,24 @@ export class UserService {
   }
 
   public Get(id: string) {
-    return this.angularFirestore.collection("Users").doc(id).snapshotChanges();
+
+
+    let user = new User();
+
+    this.angularFirestore.collection("Users").doc(id).snapshotChanges().subscribe(
+      (result) => {
+        let userDoc = result.payload.data() as User;
+
+        user.Name = userDoc.Name;
+        user.Email = userDoc.Email;
+        user.Confirmed = userDoc.Confirmed;
+
+        return user;
+      },
+      (error) => {
+        return null;
+      });
+
+     
   }
 }

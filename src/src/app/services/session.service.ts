@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Session } from '../models/session';
 import { Solve } from '../models/solve';
+import { SolveService } from './solve.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class SessionService {
   public onSolveAdded = new Subject();  
   public onSolveDeleted = new Subject();  
 
-  constructor() { 
+  constructor(public solveService: SolveService) { 
     this.Load();
   }
 
@@ -141,6 +142,10 @@ export class SessionService {
   }
 
   public AddSolve(solve: Solve): void {
+
+    this.currentSession.id
+
+    this.solveService.Add(solve);
 
     this.currentSession.Solves.unshift(solve);
     this.onSolveAdded.next();

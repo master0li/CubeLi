@@ -1,4 +1,5 @@
 export class Solve {
+    public ID: string = "";
     public Scramble: string = "";
     public Time: number = 0;
     public Comment: string = "";
