@@ -143,7 +143,7 @@ export class SessionService {
 
   public AddSolve(solve: Solve): void {
 
-    this.currentSession.id
+    solve.SessionID = this.currentSession.ID
 
     this.solveService.Add(solve);
 
